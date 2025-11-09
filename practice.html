@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Level 1 Practice</title>
+    <link rel="stylesheet" href="prac.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0 1rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #18122B 0%, #393053 50%, #635985 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease-in-out infinite;
+            overflow-x: hidden;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 2.7rem;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-shadow: 0 0 16px #00ffe7, 2px 2px 8px #63598599;
+            position: relative;
+        }
+        h1::after {
+            content: " ✨";
+            font-size: 2rem;
+            animation: sparkle 1.5s infinite alternate;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; color: #00ffe7; }
+        }
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffe7, #fff, #00ffe7);
+            border-radius: 2px;
+            margin: 1.5rem auto 2rem auto;
+            box-shadow: 0 1px 8px #00ffe799;
+        }
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgba(24, 18, 43, 0.45);
+            border-radius: 28px;
+            box-shadow: 0 8px 40px 0 #00ffe755, 0 2px 12px #18122B;
+            padding: 2.5rem 2rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+        }
+        .content::before {
+            content: "";
+            position: absolute;
+            top: -140px; left: -60px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #fff8 60%, transparent 100%);
+            z-index: 0;
+            filter: blur(100px);
+        }
+        .content::after {
+            content: "";
+            position: absolute;
+            bottom: -10px; right: -60px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #00ffe788 60%, transparent 100%);
+            z-index: 0;
+            filter: blur(100px);
+        }
+        .content > * { position: relative; z-index: 1; }
+        p {
+            line-height: 1.7;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .quote {
+            font-style: italic;
+            color: #00ffe7;
+            text-align: center;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #00ffe7cc;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.2rem 0;
+            justify-content: center;
+        }
+        .cool-btn {
+            background: rgba(255,255,255,0.12);
+            border: 1.5px solid rgba(255,255,255,0.18);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            min-height: 60px;
+            max-width: 70px;
+            max-height: 70px;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.2s, color 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 2px 18px #00ffe733;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .cool-btn:hover {
+            background: rgba(0,255,231,0.18);
+            transform: translateY(-3px) scale(1.07) rotate(-2deg);
+            box-shadow: 0 6px 24px #00ffe799;
+        }
+        /* Remove .cool-btn img, not needed for text buttons */
+        .custom-btn {
+            background: rgba(255,255,255,0.13);
+            border: 1.5px solid rgba(255,255,255,0.18);
+            border-radius: 18px;
+            min-width: 180px;
+            min-height: 48px;
+            padding: 0.7rem 2rem;
+            font-size: 1.1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.2s, color 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            box-shadow: 0 2px 18px #00ffe733;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem auto;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .custom-btn:hover {
+            background: rgba(0,255,231,0.18);
+            color: #00ffe7;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 24px #00ffe799;
+        }
+        .button-group {
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+        @media (max-width: 600px) {
+            .content {
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .passport-frame {
+                width: 150px;
+                height: 180px;
+            }
+            .passport-frame img {
+                width: 110px;
+                height: 140px;
+            }
+            .custom-btn, .cool-btn {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                min-height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+        .img-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.2 rem;
+        }
+        .passport-frame {
+            width: 180px;
+            height: 230px;
+            background: none;
+            border: none;
+            border-radius: 18px;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+            .passport-frame {
+                width: 320px;
+                height: 400px;
+                background: none;
+                border: none;
+                border-radius: 18px;
+                box-shadow: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+        @keyframes framePulse {
+            0% { box-shadow: 0 0 32px #00ffe799, 0 2px 12px #18122B; }
+            100% { box-shadow: 0 0 48px #fff, 0 2px 24px #00ffe7; }
+        }
+        .passport-frame img {
+            width: 1280px;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px #00ffe799;
+            border: 2px solid #393053;
+            transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+        }
+            .passport-frame img {
+                width: 300px;
+                height: 380px;
+                object-fit: cover;
+                border-radius: 16px;
+                box-shadow: 0 4px 18px #00ffe799;
+                border: 2px solid #393053;
+                transition: transform 0.9s, box-shadow 0.9s, border 0.9s;
+            }
+        .passport-frame img:hover {
+            transform: scale(1.08) rotate(360deg);
+            box-shadow: 0 8px 32px #fff;
+            border: 2px solid #00ffe7;
+        }
+        /* No glitter effect */
+    </style>
+
+</head>
+<body>
+    <h1>Welcome to My Creative Page</h1>
+    <div class="divider"></div>
+    <div class="content">
+        <p id="one">
+            🌟 <b>Unleash Your Imagination!</b> 🌟<br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ullam, quia, quo facere omnis minus est, ea atque illum unde veniam qui vitae nihil quibusdam deleniti et! Labore, quasi modi.<br>
+            Tenetur quisquam a adipisci. Rem ipsam corrupti iusto dolores atque minus iste! Vitae earum quae consequatur ipsam. Suscipit, eaque, exercitationem officia animi quas dolorem possimus numquam aut facere, iste necessitatibus?
+        </p>
+        <p id="two">
+            🚀 <b>Explore. Dream. Discover.</b> 🚀<br>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis incidunt praesentium eius culpa fuga saepe recusandae voluptatibus expedita repudiandae odio perspiciatis dolorum quibusdam eveniet, deserunt accusamus harum inventore necessitatibus magnam!<br>
+            Ut dolorem eligendi autem vitae laudantium temporibus, iure natus deserunt qui dicta vel ducimus explicabo. Aut alias corporis veritatis tempora dolore impedit explicabo voluptatem aliquid quasi. Aut expedita tempore reprehenderit?
+        </p>
+        <div class="quote">“Dont wait for the perfect time..Think before you act and act before time runs out...!” – Samith.S.P</div>
+        <div class="button-group">
+            <hr><a class="cool-btn" href="https://www.google.com" target="_blank" rel="noopener" style="color:snow; font-size:1.05rem; text-align:center; white-space:normal; line-height:1.1;">Google</a><hr>
+            <a class="cool-btn" href="https://www.youtube.com" target="_blank" rel="noopener" style="color:snow; font-size:1.05rem; text-align:center; white-space:normal; line-height:1.1;">YouTube</a><hr>
+            <a class="cool-btn" href="https://chat.openai.com/" target="_blank" rel="noopener" style="color:snow; font-size:1.05rem; text-align:center; white-space:normal; line-height:1.1;">ChatGPT</a><hr>
+        </div>
+           <p> <a class="custom-btn" href="c:\Users\samsa\Downloads\Wallpaper\Samurai VS Dragon.mp4" download controls>🎬 Watch Dragon Warrior</a>
+            <a class="custom-btn" href="C:\Users\samsa\Downloads\Sam's_Vsnboard2.pdf" download>📄 My Vision Board</a></p>
+        
+        <div class="img-container">
+            <div class="passport-frame">
+                <img src="c:\Users\samsa\Downloads\VS code\CSS\Samiiiiiiii.jpg" alt="Me">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<hr>

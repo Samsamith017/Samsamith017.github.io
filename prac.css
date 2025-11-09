@@ -1,0 +1,25 @@
+H1{
+    text-align: center;
+    font-weight: 200;
+}
+button{
+    color:rebeccapurple;
+    background-color: bisque;
+    text-align: center;
+    font-style: oblique;
+    font-family: monospace;
+    align-items: center;
+}
+#one{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    font-style: oblique;
+    color:deepskyblue;
+    font-size: larger;
+}
+body{
+    background-color:whitesmoke;
+}
+body #two{
+    font-size: small;
+}
