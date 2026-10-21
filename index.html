@@ -1,10 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Samith S.P., a B.E. Computer Science and Data Science student with experience in Python, data analytics, machine learning, and software development.">
+  <meta name="theme-color" content="#0A4D9C">
   <title>Sam's — Portfolio</title>
-  <meta name="description" content="Portfolio of Samith S.P — B.E. Data Science student and aspiring software developer.">
+
   <style>
     :root {
       --brand: #0A4D9C;
@@ -16,14 +19,30 @@
       --radius: 16px;
       --shadow: 0 10px 25px rgba(2,8,23,.08);
     }
+    * {
+      box-sizing: border-box;
+    }
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
     body {
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font: 14px/1.6 "Californian FB", serif;
+      font: 14px/1.6 "Californian FB", Georgia, serif;
+    }
+    a {
+      color: var(--brand);
+      overflow-wrap: anywhere;
+    }
+    a:hover {
+      color: #073A77;
+    }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--ring);
+      outline-offset: 3px;
     }
     .container {
       max-width: 1000px;
@@ -34,9 +53,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(248,248,252,.9);
+      background: rgba(248,248,252,.92);
       backdrop-filter: saturate(180%) blur(8px);
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #E5E7EB;
     }
     .navinner {
       display: flex;
@@ -49,49 +68,57 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
       font-weight: 700;
       color: var(--brand);
     }
     .brand .logo {
       width: 28px;
       height: 28px;
+      flex-shrink: 0;
       border-radius: 8px;
       background: linear-gradient(135deg,var(--brand),#3B82F6);
-      box-shadow: 0 6px 14px rgba(10,77,156,.35);
-    }
-    .nav a {
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 10px;
-      border-radius: 10px;
-    }
-    .nav a:hover {
-      background: #E5F0FF;
-      color: var(--brand);
+      box-shadow: 0 6px 14px rgba(10,77,156,.25);
     }
     .links {
       display: flex;
-      gap: 8px;
+      align-items: center;
+      gap: 5px;
       flex-wrap: wrap;
+    }
+    .nav a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 7px 9px;
+      border-radius: 10px;
+    }
+    .nav a:hover {
+      background: #EAF2FF;
+      color: #073A77;
     }
     .hero {
       display: grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 28px;
+      gap: 24px;
       align-items: center;
-      padding: 40px 20px;
+      padding-top: 40px;
+      padding-bottom: 30px;
     }
     .card {
+      min-width: 0;
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 24px;
     }
     h1 {
-      font-size: 40px;
-      line-height: 1.15;
-      margin: 0 0 10px;
+      font-size: 36px;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h2 {
+      line-height: 1.3;
     }
     .subtitle {
       color: var(--muted);
@@ -113,18 +140,21 @@
     }
     .cta {
       display: flex;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 18px;
       flex-wrap: wrap;
     }
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 10px 14px;
       border-radius: 12px;
-      border: 1px solid #d1d5db;
-      background: #fff;
+      border: 1px solid #D1D5DB;
+      background: #FFFFFF;
+      font-family: inherit;
+      font-size: 14px;
       font-weight: 700;
       color: var(--ink);
       text-decoration: none;
@@ -132,79 +162,96 @@
     }
     .btn.primary {
       background: var(--brand);
-      color: #fff;
+      color: #FFFFFF;
       border-color: var(--brand);
     }
-    .btn:focus,
     .btn:hover {
       outline: 2px solid var(--ring);
+      outline-offset: 1px;
+    }
+    .btn.primary:hover {
+      color: #FFFFFF;
+      filter: brightness(1.08);
     }
     section {
       padding: 22px 20px;
     }
     .personal-quote {
       margin: 0;
-      padding: 0;
       text-align: center;
       font-size: 16px;
       font-style: italic;
       line-height: 1.8;
-      background: transparent;
-      border: none;
-      box-shadow: none;
     }
     .quote-author {
       font-style: normal;
       font-weight: 600;
     }
     .section-title {
-      font-size: 20px;
-      margin: 0 0 14px;
+      font-size: 21px;
+      margin: 0 0 16px;
       color: var(--brand);
     }
     .grid {
       display: grid;
+      grid-template-columns: 1fr;
       gap: 16px;
     }
-    @media (min-width: 740px) {
-      .grid.cols-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-      .grid.cols-3 {
-        grid-template-columns: repeat(3,1fr);
-      }
-    }
     .item {
+      min-width: 0;
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 20px;
     }
     .item h3 {
-      margin: 0 0 6px;
+      margin: 0 0 7px;
       font-size: 16px;
+      line-height: 1.45;
     }
     .meta {
       font-size: 13px;
       color: var(--muted);
     }
     ul.tight {
-      margin: 8px 0 0 18px;
+      margin: 10px 0 0 18px;
+      padding: 0;
     }
     ul.tight li {
-      margin: 4px 0;
+      margin: 6px 0;
     }
-    footer {
-      padding: 30px 20px;
+    .keyword-box {
+      background: var(--card);
+      border: 1px solid #D6E4F5;
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .keyword-description {
       color: var(--muted);
-      text-align: center;
+      margin: 0 0 16px;
+    }
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+    .keyword-tag {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: #E6EEF9;
+      color: #0B3A73;
+      border: 1px solid #D3E3F8;
+      font-size: 13px;
+      font-weight: 600;
     }
     .contact {
       display: flex;
       gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 8px;
+      margin-top: 12px;
     }
     .pill {
       padding: 8px 12px;
@@ -212,90 +259,85 @@
       background: #EEF6FF;
       border: 1px solid #C7DBFF;
     }
+    footer {
+      padding: 25px 20px;
+      color: var(--muted);
+      text-align: center;
+    }
     .sr-only {
       position: absolute;
-      left: -9999px;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
     }
-    [id] {
-      scroll-margin-top: 80px;
-    }
+
     body,
+    .nav,
     .card,
     .item,
-    .nav,
     .btn,
     .tag,
     .pill,
-    .links a,
-    h1,
-    h2,
-    h3,
-    p,
-    .meta,
-    section,
-    footer,
-    hr,
-    .brand,
-    .container {
-      transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+    .keyword-box,
+    .keyword-tag {
+      transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
     }
     @keyframes themeFade {
       from { opacity: .85; }
       to { opacity: 1; }
     }
     body.theme-animate {
-      animation: themeFade .35s ease both;
+      animation: themeFade .3s ease both;
     }
-    .btn.primary {
-      background: #0A4D9C;
-      border-color: #13294e;
+    .profile-photo {
+      width: 145px;
+      height: 181px;
+      border-radius: 12px;
+      object-fit: cover;
+      float: left;
+      margin: 0 16px 12px 0;
+      transition: transform .3s ease, box-shadow .3s ease;
     }
-    .btn.primary:hover,
-    .btn.primary:focus {
-      filter: brightness(1.06);
-    }
-    .nav a {
-      color: #0A4D9C;
-    }
-    .nav a:hover {
-      background: #EAF2FF;
-      color: #073A77;
-    }
-    a {
-      color: #0A4D9C;
-    }
-    a:hover {
-      color: #073A77;
-    }
-    header.hero .card img[alt="Profile Photo"] {
-      transition: transform .35s ease, box-shadow .35s ease;
-      will-change: transform;
-    }
-    header.hero .card img[alt="Profile Photo"]:hover {
-      transform: scale(1.04);
-      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    .profile-photo:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,.2);
     }
     html.theme-dark {
       --bg: #0B1220;
       --card: #0F172A;
       --ink: #E5E7EB;
       --muted: #94A3B8;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.3);
+      --ring: rgba(96,165,250,.4);
     }
     html.theme-dark .nav {
-      background: rgba(2,6,23,.75);
-      border-bottom: 1px solid #334155;
+      background: rgba(2,6,23,.92);
+      border-bottom-color: #334155;
     }
     html.theme-dark .nav a {
-      color: var(--ink);
+      color: #E5E7EB;
     }
     html.theme-dark .nav a:hover {
       background: #1E293B;
-      color: #CDE1FF;
+      color: #BFDBFE;
     }
-    html.theme-dark .tag {
-      background: #0B3A73;
-      color: #E2E8F0;
+    html.theme-dark a {
+      color: #93C5FD;
+    }
+    html.theme-dark .tag,
+    html.theme-dark .keyword-tag {
+      background: #15345B;
+      color: #DBEAFE;
+      border-color: #294D77;
     }
     html.theme-dark .btn {
       background: #0B1220;
@@ -305,39 +347,92 @@
     html.theme-dark .btn.primary {
       background: #335FAE;
       border-color: #335FAE;
-    }
-    html.theme-dark .item {
-      background: var(--card);
+      color: #FFFFFF;
     }
     html.theme-dark .pill {
       background: #0B1220;
       border-color: #334155;
     }
+    html.theme-dark .keyword-box {
+      border-color: #334155;
+    }
     html.theme-dark hr {
       border-top-color: #334155 !important;
+    }
+    @media (min-width: 740px) {
+      .grid.cols-2 {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+      .grid.cols-3 {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+      }
+    }
+    @media (max-width: 900px) {
+      .navinner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .hero {
+        gap: 16px;
+      }
+      .links {
+        gap: 4px;
+      }
     }
     @media (max-width: 739px) {
       .hero {
         grid-template-columns: 1fr;
         padding-top: 24px;
       }
-      .navinner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
       h1 {
-        font-size: 32px;
+        font-size: 30px;
+      }
+      .container {
+        padding: 16px;
+      }
+      section {
+        padding: 18px 16px;
+      }
+      .card {
+        padding: 20px;
+      }
+      .profile-photo {
+        width: 110px;
+        height: 138px;
+      }
+      .brand {
+        font-size: 14px;
+      }
+      .links a {
+        padding: 6px 7px;
+      }
+      .keyword-box {
+        padding: 16px;
+      }
+      .pill {
+        max-width: 100%;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 <body>
   <span id="about" class="sr-only" aria-hidden="true"></span>
-  <nav class="nav">
+  <nav class="nav" aria-label="Main navigation">
     <div class="navinner container">
       <div class="brand">
         <span class="logo" aria-hidden="true"></span>
-        Samith S P | Sam
+        Samith S. P. | Sam
       </div>
       <div class="links">
         <a href="#about">About</a>
@@ -345,44 +440,49 @@
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
+        <a href="#keywords">Keywords</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
-        <button id="themeToggle" class="btn" style="padding:8px 10px;font-weight:700" aria-label="Toggle theme" title="Toggle theme">🌙 Dark</button>
+        <button id="themeToggle" class="btn" type="button" style="padding:8px 10px" aria-label="Switch to dark theme">🌙 Dark</button>
       </div>
     </div>
   </nav>
   <header class="hero container">
     <div class="card">
-      <img src="profile.jpg" alt="Profile Photo" style="width:145px;height:181px;border-radius:12px;object-fit:cover;float:left;margin:0 16px 12px 0;">
-      <h1>Data Science undergrad &amp; aspiring software developer</h1>
-      <p class="subtitle">I build clean, efficient solutions and love learning by doing. Based in Mysuru, India.</p>
+      <img src="profile.jpg" alt="Profile Photo" class="profile-photo">
+      <h1>Data Science Undergraduate | Technology &amp; Innovation Enthusiast</h1>
+      <p class="subtitle">
+        I'm a CSE(Data Science) student who enjoys working with data, building practical projects, and learning how software works. Based in Mysuru, India.
+      </p>
       <div class="tags">
         <span class="tag">Python</span>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">SEO</span>
-        <span class="tag">Content Writing</span>
+        <span class="tag">C Programming</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">HTML &amp; CSS</span>
       </div>
       <div class="cta">
         <a class="btn primary" href="#contact">Get in touch</a>
-        <a class="btn" href="#experience">See my work</a>
+        <a class="btn" href="#projects">View my projects</a>
       </div>
     </div>
-    <div class="card">
-      <h2 class="section-title" style="margin-top:0">Quick info</h2>
-      <p style="margin:0 0 6px"><strong>Email:</strong> <a href="mailto:samsamith017@gmail.com">samsamith017@gmail.com</a></p>
-      <p style="margin:0 0 6px"><strong>Phone:</strong> <a href="tel:+919741655662">+91 97416 55662</a></p>
-      <p style="margin:0"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/samith-sp-20651032a" target="_blank" rel="noopener">linkedin.com/in/Samith.s.p</a></p>
-
-      <hr style="margin:16px 0;border:none;border-top:1px solid #e5e7eb;">
-      <p style="margin:0"><strong>Objective</strong><br>To grow as a software developer by building user-focused features, collaborating with teams, and delivering reliable solutions. I aim to improve my skills, contribute to impactful projects, and create software that genuinely benefits users...</p>
-    </div>
+ <div class="card">
+  <h2 class="section-title" style="margin-top:0">Quick Info</h2>
+  <p><strong>Current Year:</strong> 3rd Year of Engineering</p>
+  <p><strong>Current Semester:</strong> 5th Semester</p>
+  <p><strong>Email:</strong> <a href="mailto:samsamith017@gmail.com">samsamith017@gmail.com</a></p>
+  <hr style="margin:16px 0;border:none;border-top:1px solid #E5E7EB">
+  <p style="margin-bottom:0">
+    <h2><strong>Career Objective:</strong><br></h2>
+    I'm looking to grow in the field of Computer Science by applying my technical knowledge, developing practical skills, and learning new technologies. I aim to contribute to real-world projects, solve problems, and build useful solutions that make a positive impact...
+  </p>
+</div>
   </header>
   <section class="container" aria-label="Personal quote">
     <p class="personal-quote">
-      “Dont wait for the perfect time..Think before you act and act before time runs out...!”
+      “Don't wait for the perfect time... Think before you act, but act before time runs out...!”
       <br>
-      <span class="quote-author">— Samith.S.P</span>
+      <span class="quote-author">— Samith S P</span>
     </p>
   </section>
   <section id="experience" class="container">
@@ -390,31 +490,68 @@
     <div class="grid cols-2">
       <article class="item">
         <h3>Creative Writing Intern — InAmigos Foundation</h3>
-        <div class="meta">Virtual · Oct 2025</div>
+        <div class="meta">Virtual · October 2025</div>
         <ul class="tight">
-          <li>Built outreach content that amplified animal-welfare initiatives and rescue updates.</li>
-          <li>Led on-ground coordination with volunteers during awareness drives.</li>
-          <li>Drove daily reporting to keep stakeholders aligned on progress and impact.</li>
-          <li>Learned ethical handling and community engagement practices.</li>
+          <li>Created content to support animal welfare initiatives and share rescue updates.</li>
+          <li>Coordinated with volunteers during awareness activities.</li>
+          <li>Prepared updates to keep stakeholders informed about progress.</li>
+          <li>Gained experience in content creation and community engagement.</li>
         </ul>
       </article>
       <article class="item">
         <h3>Operations Intern — CollegeTips.in</h3>
-        <div class="meta">Virtual · 7 Aug 2025 – 7 Sep 2025</div>
+        <div class="meta">Virtual · 7 August – 7 September 2025</div>
         <ul class="tight">
-          <li>Coordinated day-to-day tasks to support smooth campaign execution.</li>
-          <li>Streamlined peer communication for timely task completion and participation.</li>
-          <li>Documented engagement metrics for transparent tracking and reviews.</li>
-          <li>Learned time-management and digital coordination to deliver on deadlines.</li>
+          <li>Helped coordinate daily tasks and campaign activities.</li>
+          <li>Communicated with peers to support timely task completion.</li>
+          <li>Recorded engagement information for tracking and review.</li>
+          <li>Improved time management, teamwork, and digital coordination skills.</li>
         </ul>
       </article>
       <article class="item">
         <h3>Data Science Intern &amp; Trainee — GenZ Educate Wing</h3>
-        <div class="meta">March–May 2026 · MSME-recognised organisation, Government of India</div>
+        <div class="meta">March–May 2026 · MSME-recognised organisation</div>
         <ul class="tight">
-          <li>Completed practical training in data analysis and data-driven techniques.</li>
-          <li>Applied data science concepts through a hands-on predictive maintenance project.</li>
-          <li>Built and deployed an interactive Streamlit dashboard for industrial equipment reliability.</li>
+          <li>Completed practical training in data analysis and data science techniques.</li>
+          <li>Applied Python and machine learning concepts in a predictive maintenance project.</li>
+          <li>Built and deployed a Streamlit dashboard to estimate industrial equipment failure risk.</li>
+          <li>Gained hands-on experience in model development and dashboard deployment.</li>
+        </ul>
+      </article>
+      <article class="item">
+        <h3>Tata Data Visualisation: Empowering Business with Effective Insights — Forage</h3>
+        <div class="meta">Job Simulation · 20 November 2025</div>
+        <ul class="tight">
+          <li>Completed a data visualization simulation based on work for Tata Consultancy Services (TCS).</li>
+          <li>Prepared questions for a meeting with senior client leadership.</li>
+          <li>Created data visualizations to communicate findings and support executive decision-making.</li>
+        </ul>
+      </article>
+      <article class="item">
+        <h3>Deloitte Australia Data Analytics — Forage</h3>
+        <div class="meta">Job Simulation · 20 November 2025</div>
+        <ul class="tight">
+          <li>Completed a job simulation involving data analysis and forensic technology.</li>
+          <li>Created a data dashboard using Tableau to present analytical findings.</li>
+          <li>Used Microsoft Excel to classify data and draw business conclusions.</li>
+        </ul>
+      </article>
+      <article class="item">
+        <h3>Deloitte Australia Cyber — Forage</h3>
+        <div class="meta">Job Simulation · 26 November 2025</div>
+        <ul class="tight">
+          <li>Analyzed web activity logs as part of a simulated cybersecurity investigation.</li>
+          <li>Examined a simulated security breach to help assess a client's situation.</li>
+          <li>Reviewed user activity to identify suspicious behavior and answer investigation questions.</li>
+        </ul>
+      </article>
+      <article class="item">
+        <h3>BCG Data for Decision Makers — Forage</h3>
+        <div class="meta">Job Simulation · 5 December 2025</div>
+        <ul class="tight">
+          <li>Evaluated a simulated client's multi-channel advertising campaign performance.</li>
+          <li>Analyzed customer conversion trends to compare campaign effectiveness across channels and audiences.</li>
+          <li>Presented data-backed recommendations aligned with the client's marketing goals.</li>
         </ul>
       </article>
     </div>
@@ -425,10 +562,12 @@
       <article class="item">
         <h3>Industrial Predictive Maintenance Dashboard</h3>
         <div class="meta">Data Science · Python · Machine Learning · Streamlit · March–May 2026</div>
-        <p>Developed an interactive web dashboard that uses equipment operating parameters to estimate failure risk and support predictive maintenance decisions.</p>
-
+        <p>
+          Built and deployed a web dashboard that uses machine operating data, including temperature, rotational speed, torque, and tool wear, to estimate failure risk. The dashboard helps users understand equipment conditions and make better-informed maintenance decisions.
+        </p>
         <div class="cta">
-          <a class="btn primary" href="https://equipment-reliability-dashboard.streamlit.app/" target="_blank" rel="noopener">View Live Dashboard</a>
+          <a class="btn primary" href="https://equipment-reliability-dashboard.streamlit.app/" target="_blank" rel="noopener noreferrer">View Live Dashboard</a>
+          <a class="btn" href="https://github.com/Samsamith017/predictive-maintenance-system/tree/main/maintenance_deploy" target="_blank" rel="noopener noreferrer">View Source Code</a>
         </div>
       </article>
     </div>
@@ -436,133 +575,211 @@
   <section id="education" class="container">
     <h2 class="section-title">Education</h2>
     <div class="grid cols-2">
-      <div class="item">
-        <h3>B.E. in CSE (Data Science)</h3>
+      <article class="item">
+        <h3>B.E. in Computer Science and Engineering (Data Science)</h3>
         <div class="meta">Vivekananda College of Engineering &amp; Technology · 2024–2028</div>
-      </div>
-      <div class="item">
+      </article>
+      <article class="item">
         <h3>Senior Secondary — XII, Science</h3>
         <div class="meta">Cauvery Excel PU College · 2024</div>
-      </div>
-      <div class="item">
+      </article>
+      <article class="item">
         <h3>Secondary — X</h3>
         <div class="meta">New Oxford Public School · 2022</div>
-      </div>
+      </article>
     </div>
   </section>
   <section id="skills" class="container">
     <h2 class="section-title">Skills</h2>
     <div class="grid cols-3">
-      <div class="item">
-        <h3>Programming &amp; Web</h3>
+      <article class="item">
+        <h3>Programming &amp; Web Development</h3>
         <ul class="tight">
-          <li>Python</li>
+          <li>Python Programming</li>
           <li>C Programming</li>
           <li>HTML</li>
           <li>CSS</li>
+          <li>Programming Fundamentals</li>
+          <li>Software Development Fundamentals</li>
         </ul>
-      </div>
-      <div class="item">
+      </article>
+      <article class="item">
         <h3>Tools &amp; Technologies</h3>
         <ul class="tight">
           <li>Power BI</li>
           <li>Tableau</li>
           <li>Microsoft Excel</li>
+          <li>Spreadsheet Skills</li>
           <li>Streamlit</li>
           <li>Git &amp; GitHub</li>
           <li>Canva</li>
+          <li>Data Visualization Tools</li>
+          <li>Visual Basic</li>
         </ul>
-      </div>
-      <div class="item">
+      </article>
+      <article class="item">
         <h3>Data Science &amp; Analytics</h3>
         <ul class="tight">
-          <li>Pandas &amp; NumPy</li>
+          <li>Data Analysis</li>
+          <li>Data Analytics</li>
           <li>Data Cleaning &amp; Preprocessing</li>
           <li>Exploratory Data Analysis (EDA)</li>
+          <li>Data Interpretation</li>
+          <li>Data Modeling</li>
           <li>Data Visualization</li>
+          <li>Data Presentation</li>
+          <li>Data Synthesis</li>
+          <li>Customer Segmentation</li>
           <li>Machine Learning Fundamentals</li>
           <li>Model Evaluation</li>
           <li>Dashboard Development</li>
           <li>Predictive Maintenance</li>
         </ul>
-      </div>
-      <div class="item">
-        <h3>Professional Skills</h3>
+      </article>
+      <article class="item">
+        <h3>Cybersecurity &amp; Computer Fundamentals</h3>
         <ul class="tight">
-          <li>Content &amp; Creative Writing</li>
-          <li>SEO Fundamentals</li>
-          <li>Communication</li>
-          <li>Team Coordination</li>
-          <li>Documentation &amp; Reporting</li>
+          <li>Computer Networking Fundamentals</li>
+          <li>Log Analysis</li>
+          <li>Web Security Fundamentals</li>
+          <li>Data Structures Fundamentals</li>
+        </ul>
+      </article>
+      <article class="item">
+        <h3>Communication &amp; Business Skills</h3>
+        <ul class="tight">
+          <li>Effective Communication</li>
+          <li>Formal Communication</li>
+          <li>Presentation Preparation</li>
+          <li>Stakeholder Awareness</li>
+          <li>Planning &amp; Coordination</li>
+          <li>Problem Solving</li>
+          <li>Teamwork</li>
+          <li>Technical Documentation</li>
           <li>Time Management</li>
         </ul>
+      </article>
+    </div>
+  </section>
+  <section id="keywords" class="container">
+    <h2 class="section-title">Core Keywords</h2>
+    <div class="keyword-box">
+      <p class="keyword-description">
+        Technical skills, analytical methods, development tools, and professional competencies gained through academic projects, internships, and Forage job simulations.
+      </p>
+      <div class="keyword-tags">
+        <span class="keyword-tag">Python Programming</span>
+        <span class="keyword-tag">C Programming</span>
+        <span class="keyword-tag">Data Science</span>
+        <span class="keyword-tag">Data Analysis</span>
+        <span class="keyword-tag">Data Analytics</span>
+        <span class="keyword-tag">Data Cleaning</span>
+        <span class="keyword-tag">Data Interpretation</span>
+        <span class="keyword-tag">Data Modeling</span>
+        <span class="keyword-tag">Data Synthesis</span>
+        <span class="keyword-tag">Data Visualization</span>
+        <span class="keyword-tag">Data Presentation</span>
+        <span class="keyword-tag">Customer Segmentation</span>
+        <span class="keyword-tag">Exploratory Data Analysis</span>
+        <span class="keyword-tag">Machine Learning</span>
+        <span class="keyword-tag">Model Evaluation</span>
+        <span class="keyword-tag">Dashboard Development</span>
+        <span class="keyword-tag">Microsoft Excel</span>
+        <span class="keyword-tag">Tableau</span>
+        <span class="keyword-tag">Power BI</span>
+        <span class="keyword-tag">Visual Basic</span>
+        <span class="keyword-tag">Streamlit</span>
+        <span class="keyword-tag">HTML &amp; CSS</span>
+        <span class="keyword-tag">Git &amp; GitHub</span>
+        <span class="keyword-tag">Data Structures</span>
+        <span class="keyword-tag">Computer Networking</span>
+        <span class="keyword-tag">Log Analysis</span>
+        <span class="keyword-tag">Web Security</span>
+        <span class="keyword-tag">Software Development</span>
+        <span class="keyword-tag">Problem Solving</span>
+        <span class="keyword-tag">Effective Communication</span>
+        <span class="keyword-tag">Stakeholder Awareness</span>
+        <span class="keyword-tag">Presentation Preparation</span>
+        <span class="keyword-tag">Technical Documentation</span>
+        <span class="keyword-tag">Predictive Maintenance</span>
       </div>
     </div>
   </section>
   <section id="certifications" class="container">
     <h2 class="section-title">Certifications</h2>
     <div class="grid cols-2">
-      <div class="item">
+      <article class="item">
         <h3>Design Thinking for Beginners</h3>
-        <div class="meta">Simplilearn · Mar 2025</div>
-      </div>
-      <div class="item">
+        <div class="meta">Simplilearn · March 2025</div>
+      </article>
+      <article class="item">
         <h3>AI for Students Workshop</h3>
-        <div class="meta">NxtWave · Jan 2025</div>
-      </div>
-      <div class="item">
+        <div class="meta">NxtWave · January 2025</div>
+      </article>
+      <article class="item">
         <h3>CSS (Basic)</h3>
-        <div class="meta">HackerRank · Dec 2024</div>
-      </div>
-      <div class="item">
+        <div class="meta">HackerRank · December 2024</div>
+      </article>
+      <article class="item">
         <h3>Basics of Python</h3>
-        <div class="meta">HackerRank · Dec 2024</div>
-      </div>
-      <div class="item">
+        <div class="meta">HackerRank · December 2024</div>
+      </article>
+      <article class="item">
         <h3>Canva Essentials</h3>
-        <div class="meta">Canva Design School · Dec 2024</div>
-      </div>
-      <div class="item">
+        <div class="meta">Canva Design School · December 2024</div>
+      </article>
+      <article class="item">
         <h3>Data Science Training Certificate</h3>
-        <div class="meta">GenZ Educate Wing · March–May 2026 · MSME-recognised, Government of India</div>
-      </div>
-      <div class="item">
+        <div class="meta">GenZ Educate Wing · March–May 2026</div>
+      </article>
+      <article class="item">
         <h3>Data Science Internship Certificate</h3>
-        <div class="meta">GenZ Educate Wing · March–May 2026 · MSME-recognised, Government of India</div>
-      </div>
+        <div class="meta">GenZ Educate Wing · March–May 2026</div>
+      </article>
     </div>
   </section>
   <section id="contact" class="container">
     <h2 class="section-title">Contact</h2>
     <div class="card" style="text-align:center">
-      <p>Open to internships and entry-level roles in software development, operations, and content.</p>
+      <p>
+        I'm open to internship opportunities and entry-level roles in data science, data analytics, and software development.
+      </p>
       <div class="contact">
         <span class="pill">📧 <a href="mailto:samsamith017@gmail.com">samsamith017@gmail.com</a></span>
         <span class="pill">📞 <a href="tel:+919741655662">+91 97416 55662</a></span>
-        <span class="pill">🔗 <a href="https://www.linkedin.com/in/samith-sp-20651032a" target="_blank" rel="noopener">LinkedIn</a></span>
+        <span class="pill">🔗 <a href="https://www.linkedin.com/in/samith-sp-20651032a" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
       </div>
     </div>
   </section>
   <footer>
-    <div class="container">© <span id="y"></span> Samith S.P — Made with clean HTML, CSS &amp; JS</div>
+    <div class="container">
+      © <span id="y"></span> Samith S. P. — Made with HTML, CSS, and JavaScript.
+    </div>
   </footer>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
     (function () {
-      const heading = document.querySelector("header h1");
-      if (heading) {
-        heading.textContent = heading.textContent.replace(/undergrad\b/i, "Undergraduate");
-      }
-    })();
-    (function () {
       const html = document.documentElement;
       const body = document.body;
       const button = document.getElementById("themeToggle");
-      const savedTheme = localStorage.getItem("theme");
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem("theme");
+      } catch (error) {
+        savedTheme = null;
+      }
+      function updateButton(isDark) {
+        if (!button) return;
+        button.textContent = isDark ? "☀️ Light" : "🌙 Dark";
+        button.setAttribute(
+          "aria-label",
+          isDark ? "Switch to light theme" : "Switch to dark theme"
+        );
+      }
       if (savedTheme === "dark") {
         html.classList.add("theme-dark");
-        if (button) button.textContent = "☀️ Light";
       }
+      updateButton(html.classList.contains("theme-dark"));
       function applyFade() {
         body.classList.remove("theme-animate");
         void body.offsetWidth;
@@ -570,10 +787,12 @@
       }
       function toggleTheme() {
         const isDark = html.classList.toggle("theme-dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        if (button) {
-          button.textContent = isDark ? "☀️ Light" : "🌙 Dark";
+        try {
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        } catch (error) {
+          // Theme switching still works when local storage is unavailable.
         }
+        updateButton(isDark);
         applyFade();
       }
       if (button) {
